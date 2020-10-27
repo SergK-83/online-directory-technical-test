@@ -1,0 +1,22 @@
+
+<div class="pagination">
+
+  <button class="pagination__btn pagination__arrow" [disabled]="isFirst" (click)="paginateLeft()">
+    <
+  </button>
+
+  <button class="pagination__btn pagination__page pagination__page_active" *ngFor="let pageNumber of pageNumbers" [ngClass]="{pagination__page_active: pagination.pageNumber == pageNumber}" (click)="paginate(pageNumber)">
+    {{ pageNumber }}
+  </button>
+
+  <button class="pagination__btn pagination__arrow" [disabled]="isLast" (click)="paginateRight()">
+    >
+  </button>
+
+</div>
+
+<select class="pagination__select" (change)="setPerPage($event.target.value)" [value]="pagination.perPage">
+  <option *ngFor="let perPage of perPageOptions" [value]="perPage" [selected]="pagination.perPage == perPage">
+    {{perPage}}
+  </option>
+</select>

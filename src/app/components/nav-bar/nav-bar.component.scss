@@ -1,0 +1,20 @@
+.nav-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.nav-icon:hover,
+.nav-icon.active {
+  svg, svg path {
+    fill: blue;
+  }
+}
