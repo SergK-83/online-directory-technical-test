@@ -185,6 +185,7 @@ list-box
 .list-box__item-col {
   flex: 0 0 calc((100% - 60px)/5);
   max-width: calc((100% - 60px)/5);
+  word-break: break-all;
 }
 
 .list-box__item-col-icon {
@@ -236,7 +237,6 @@ pagination
   font-weight: 600;
   padding: 5px 10px;
 }
-
 
 .pagination__page_active {
   color: #3482b9;
