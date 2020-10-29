@@ -98,6 +98,16 @@ workspace
   background-color: #fff;
 }
 
+.workspace__view-title {
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #ddd;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #555;
+}
+
 .workspace__nav-list {
   display: flex;
   flex-direction: column;
@@ -160,11 +170,11 @@ list-box
 
   .list-box__item-col {
     border: 1px solid #eee;
-    border-right: none;
+    border-right-width: 0;
   }
 
-  .list-box__item-col-last {
-    border: 1px solid #eee;
+  .list-box__item-col:last-child {
+    border-right-width: 1px;
   }
 }
 
@@ -172,20 +182,32 @@ list-box
   background-color: #f8f8f8;
 }
 
-.list-box__item-col, .list-box__item-col-last {
-  padding: 15px;
+.list-box__item-col {
+  padding: 12px;
 }
-
-.list-box__item-col-last {
-  flex: 0 0 60px;
-  max-width: 60px;
-}
-
 
 .list-box__item-col {
-  flex: 0 0 calc((100% - 60px)/5);
-  max-width: calc((100% - 60px)/5);
+  flex: 0 0 calc((100% - 80px - 50px)/5);
+  max-width: calc((100% - 80px - 50px)/5);
   word-break: break-all;
+}
+
+.list-box__item-col_avatar {
+  flex: 0 0 80px;
+  max-width: 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.list-box__item-avatar {
+  max-width: 100%;
+}
+
+.list-box__item-col_action {
+  flex: 0 0 50px;
+  max-width: 50px;
+  text-align: center;
 }
 
 .list-box__item-col-icon {
@@ -195,13 +217,14 @@ list-box
 }
 
 .list-box__item-action {
+  padding: 0;
   border: none;
   background-color: transparent;
   outline: none;
 }
 
 .list-box__item_favorite {
-  .list-box__item-col, .list-box__item-col-last {
+  .list-box__item-col {
     border-color: #3482b9;
   }
 }

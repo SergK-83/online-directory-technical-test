@@ -1,6 +1,8 @@
 <div class="workspace__view">
 
   <div class="workspace__view-body">
+    <h1 class="workspace__view-title">Users list</h1>
+
     <app-search *ngIf="showSearchBar" (onSearch)="onSearch($event)"></app-search>
     <button class="btn-back" routerLink="../users" *ngIf="!showSearchBar">
       <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,22 +14,24 @@
     <div class="list-box">
       <div class="list-box__header">
         <div class="list-box__item">
+          <div class="list-box__item-col list-box__item-col_avatar"></div>
           <div class="list-box__item-col" *ngFor="let field of fields">
             {{fieldTranslations[field]}}
           </div>
-          <div class="list-box__item-col-last"></div>
+          <div class="list-box__item-col list-box__item-col_action"></div>
         </div>
 
       </div>
 
       <div class="list-box__body">
         <div class="list-box__item list-box__body-item" *ngFor="let user of displayedUsers" [ngClass]="{'list-box__item_favorite': user.is_favorite}">
+          <div class="list-box__item-col list-box__item-col_avatar"><img class="list-box__item-avatar" src="{{user.picture_url}}" alt=""></div>
           <div class="list-box__item-col">{{user.first_name}}</div>
           <div class="list-box__item-col">{{user.last_name}}</div>
           <div class="list-box__item-col">{{user.email}}</div>
           <div class="list-box__item-col">{{user.phone_number}}</div>
           <div class="list-box__item-col">{{user.company_name}}</div>
-          <div class="list-box__item-col-last">
+          <div class="list-box__item-col list-box__item-col_action">
             <button class="list-box__item-action" (click)="toggleFavorite(user)">
               <svg *ngIf="!user.is_favorite" class="list-box__item-col-icon" width="64" height="61" viewBox="0 0 64 61" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M32 42.848L19.968 50.112L23.136 36.416L12.512 27.2L26.528 26.016L32 13.088L37.472 26.016L51.488 27.2L40.864 36.416L44.032 50.112L32 42.848ZM64 23.168L40.992 21.216L32 0L23.008 21.216L0 23.168L17.44 38.304L12.224 60.8L32 48.864L51.776 60.8L46.528 38.304L64 23.168Z" fill="#3482B9"/>
